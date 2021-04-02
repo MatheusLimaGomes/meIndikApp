@@ -26,8 +26,28 @@ class CenteredMessage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.max,
-        children: [],
+        children: [
+          _buildIcon(),
+          SizedBox(height: space),
+          _buildText(),
+        ],
       ),
+    );
+  }
+
+  _buildIcon() {
+    return Icon(
+      icon,
+      color: color,
+      size: iconSize,
+    );
+  }
+
+  _buildText() {
+    return Text(
+      message,
+      textAlign: TextAlign.center,
+      style: TextStyle(color: color),
     );
   }
 }
