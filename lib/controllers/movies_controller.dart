@@ -20,19 +20,18 @@ class MovieController {
       {int page = 1}) async {
     movieError = null;
     final result = await _adapter.fetchPopularMovies(page);
-
     result.fold(
-      (error) => movieError,
-      (movie) => {
+      (error) => movieError = error as MovieError,
+      (movies) => {
         if (listMoviesModel == null)
-          {listMoviesModel = movie}
+          {listMoviesModel = movies}
         else
           {
-            listMoviesModel.page = movie.page,
-            listMoviesModel.results.addAll(movie.results)
+            listMoviesModel.page = movies.page,
+            listMoviesModel.results.addAll(movies.results)
           }
       },
     );
-    return result;
+    return result as Future;
   }
 }
