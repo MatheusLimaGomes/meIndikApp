@@ -10,7 +10,7 @@ class ListMoviesModel {
     this.totalResults,
   });
 
-  final int page;
+  int page;
   final List<Movie> results;
   final int totalPages;
   final int totalResults;

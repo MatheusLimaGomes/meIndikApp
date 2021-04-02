@@ -7,12 +7,12 @@ import 'package:me_indik_app/models/movie_details_model.dart';
 import 'movie_error_adapter.dart';
 
 class MovieAdapter {
-  final Dio dio = Dio(kDioOptions);
+  final Dio _dio = Dio(kDioOptions);
 
   Future<Either<MovieError, ListMoviesModel>> fetchPopularMovies(
       int page) async {
     try {
-      final response = await dio.get('/movie/popular?page=$page');
+      final response = await _dio.get('/movie/popular?page=$page');
       final model = ListMoviesModel.fromMap(response.data);
       return Right(model);
     } on DioError catch (error) {
@@ -29,7 +29,7 @@ class MovieAdapter {
 
   Future<Either<MovieError, MovieModel>> fetchMovieByID(int id) async {
     try {
-      final response = await dio.get('/movie/$id');
+      final response = await _dio.get('/movie/$id');
       final model = MovieModel.fromMap(response.data);
       return Right(model);
     } on DioError catch (error) {
