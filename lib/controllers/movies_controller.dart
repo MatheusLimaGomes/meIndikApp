@@ -12,6 +12,7 @@ class MovieController {
 
   List<MovieModel> get movies => listMoviesModel?.results ?? <MovieModel>[];
   int get moviesCount => movies.length;
+  bool loading = true;
   bool get hasMovies => moviesCount >= 0;
   int get totalPages => listMoviesModel?.totalPages ?? 1;
   int get currentPage => listMoviesModel?.page ?? 1;
