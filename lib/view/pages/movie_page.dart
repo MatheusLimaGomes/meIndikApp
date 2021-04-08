@@ -6,6 +6,8 @@ import 'package:me_indik_app/view/widgets/centered_message.dart';
 import 'package:me_indik_app/view/widgets/centered_progress.dart';
 import 'package:me_indik_app/view/widgets/movie_card.dart';
 
+import 'movie_detail_page.dart';
+
 class MoviePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MoviePageState();
