@@ -65,7 +65,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
 
   _buildCover() {
     String imageBaseUrlPath = FlutterConfig.get('BASE_IMAGE_DETAIL_URL');
-    return Image.network('$imageUrlPath$_controller.');
+
+    return Image.network(
+        '$imageBaseUrlPath${_controller.movieDetail.backdropPath}');
   }
 
   _buildStatus() {
